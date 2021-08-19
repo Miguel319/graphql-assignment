@@ -56,7 +56,7 @@ const resolvers = {
 
         if (!place) throw Error("Place not found");
 
-        return await Place.findOneAndDelete(_id);
+        return await Place.findOneAndDelete({ _id });
       } catch (error) {
         console.log(error);
         return error;
