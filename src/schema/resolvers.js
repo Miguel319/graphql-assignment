@@ -2,8 +2,10 @@ const Place = require("../models/Place");
 
 const resolvers = {
   Query: {
-    getPlaces: async (_) => {
+    getPlaces: async (_, { input }) => {
       try {
+        if (input) return await Place.find({ country: input.country });
+
         return await Place.find({});
       } catch (error) {
         console.log(error);
